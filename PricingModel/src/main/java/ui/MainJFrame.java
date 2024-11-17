@@ -46,6 +46,9 @@ public class MainJFrame extends javax.swing.JPanel {
         txtPassword = new javax.swing.JTextField();
         userProcessContainer = new javax.swing.JPanel();
 
+        jPanel1.setBackground(new java.awt.Color(244, 237, 198));
+
+        btnSupplier.setBackground(new java.awt.Color(255, 204, 204));
         btnSupplier.setText("Login Here");
         btnSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +109,7 @@ public class MainJFrame extends javax.swing.JPanel {
 
         jSplitPane1.setLeftComponent(jPanel1);
 
+        userProcessContainer.setBackground(new java.awt.Color(244, 237, 198));
         userProcessContainer.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(userProcessContainer);
 
