@@ -85,8 +85,19 @@ public class Product {
         }
         return sum;
     }
+    public void setTargetPrice(int tp) {
+        this.targetPrice = tp;
+    }
+        
+    public String getProductName() {
+        return name;
+    }
     public void setName(String n){
         name = n;
+    }
+    
+    public ArrayList<OrderItem> getOrderItems() {
+        return orderitems;
     }
     @Override
     public String toString(){
@@ -97,14 +108,6 @@ public class Product {
     }
     public int getCeilingPrice(){
         return ceilingPrice;
-    }
-
-    public Object getProductName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setTargetPrice(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
