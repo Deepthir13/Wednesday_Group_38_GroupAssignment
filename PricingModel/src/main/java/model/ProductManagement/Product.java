@@ -16,6 +16,14 @@ import model.OrderManagement.OrderItem;
 public class Product {
     private String name;
     private int floorPrice;
+
+    public void setTargetPrice(int targetPrice) {
+        this.targetPrice = targetPrice;
+    }
+
+    public String getName() {
+        return name;
+    }
     private int ceilingPrice;
     private int targetPrice;
     ArrayList<OrderItem> orderitems;
@@ -85,19 +93,8 @@ public class Product {
         }
         return sum;
     }
-    public void setTargetPrice(int tp) {
-        this.targetPrice = tp;
-    }
-        
-    public String getProductName() {
-        return name;
-    }
     public void setName(String n){
         name = n;
-    }
-    
-    public ArrayList<OrderItem> getOrderItems() {
-        return orderitems;
     }
     @Override
     public String toString(){
@@ -110,4 +107,7 @@ public class Product {
         return ceilingPrice;
     }
 
+    public ArrayList<OrderItem> getOrderItems() {
+        return orderitems;
+    }
 }
