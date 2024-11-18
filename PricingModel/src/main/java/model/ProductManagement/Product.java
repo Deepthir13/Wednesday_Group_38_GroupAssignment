@@ -85,8 +85,19 @@ public class Product {
         }
         return sum;
     }
+    public void setTargetPrice(int tp) {
+        this.targetPrice = tp;
+    }
+        
+    public String getProductName() {
+        return name;
+    }
     public void setName(String n){
         name = n;
+    }
+    
+    public ArrayList<OrderItem> getOrderItems() {
+        return orderitems;
     }
     @Override
     public String toString(){
