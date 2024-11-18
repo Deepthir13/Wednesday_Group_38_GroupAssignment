@@ -61,6 +61,102 @@ public class ConfigureABusiness {
         Product productHP6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
         Product productHP7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
         Product productHP8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+        Supplier supplier3 = suplierdirectory.newSupplier("Max");
+        productcatalog = supplier2.getProductCatalog();
+        Product productMax1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productMax2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productMax3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productMax4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productMax5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productMax6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productMax7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productMax8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier4 = suplierdirectory.newSupplier("Mac");
+        productcatalog = supplier2.getProductCatalog();
+        Product productMac1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productMac2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productMac3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productMac4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productMac5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productMac6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productMac7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productMac8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier5 = suplierdirectory.newSupplier("ASUS");
+        productcatalog = supplier2.getProductCatalog();
+        Product productASUS1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productASUS2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productASUS3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productASUS4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productASUS5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productASUS6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productASUS7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productASU8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier6 = suplierdirectory.newSupplier("Samsung");
+        productcatalog = supplier2.getProductCatalog();
+        Product productSamSung1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productSamSung2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productSamSung3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productSamSung4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productSamSung5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productSamSung6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productSamSung7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productSamSung8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier7 = suplierdirectory.newSupplier("Micro");
+        productcatalog = supplier2.getProductCatalog();
+        Product productMicro1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productMicro2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productMicro3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productMicro4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productMicro5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productMicro6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productMicro7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productMicro8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier8 = suplierdirectory.newSupplier("Raser");
+        productcatalog = supplier2.getProductCatalog();
+        Product productRaser1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productRaser2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productRaser3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productRaser4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productRaser5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productRaser6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productRaser7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productRaser8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier9 = suplierdirectory.newSupplier("MSI");
+        productcatalog = supplier2.getProductCatalog();
+        Product productMSI1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productMSI2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productMSI3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productMSI4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productMSI5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productMSI6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productMSI7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productMSI8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
+                
+        Supplier supplier10 = suplierdirectory.newSupplier("Ranch");
+        productcatalog = supplier2.getProductCatalog();
+        Product productRanch1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
+        Product productRanch2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
+        Product productRanch3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
+        Product productRanch4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
+        Product productRanch5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
+        Product productRanch6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
+        Product productRanch7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
+        Product productRanch8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+        
 
 
 // Create Person Directory
