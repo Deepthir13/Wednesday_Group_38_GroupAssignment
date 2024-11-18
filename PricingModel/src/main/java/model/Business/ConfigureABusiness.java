@@ -5,6 +5,7 @@
  */
 package model.Business;
 
+import java.util.Random;
 import model.Business.Business;
 import model.CustomerManagement.CustomerDirectory;
 import model.CustomerManagement.CustomerProfile;
@@ -19,6 +20,7 @@ import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
 import model.ProductManagement.Product;
 import model.ProductManagement.ProductCatalog;
+import model.ProductManagement.ProductSummary;
 import model.SalesManagement.SalesPersonDirectory;
 import model.SalesManagement.SalesPersonProfile;
 import model.Supplier.Supplier;
@@ -34,104 +36,114 @@ public class ConfigureABusiness {
 
   public static Business initialize() {
     Business business = new Business("Xerox");
-    SupplierDirectory suplierdirectory = business.getSupplierDirectory();
+    Random random = new Random();
 
-        Supplier supplier1 = suplierdirectory.newSupplier("Panasonic");
-        ProductCatalog productcatalog = supplier1.getProductCatalog();
-        Product productP1 = productcatalog.newProduct("Laptop Pro 14", 50000, 85000, 75000);
-        Product productP2 = productcatalog.newProduct("Gaming Console X", 35000, 60000, 45000);
-        Product productP3 = productcatalog.newProduct("Smartphone Ultra", 25000, 40000, 32000);
-        Product productP4 = productcatalog.newProduct("4K Television", 55000, 95000, 70000);
-        Product productP5 = productcatalog.newProduct("Bluetooth Headphones", 8000, 15000, 12000);
-        Product productP6 = productcatalog.newProduct("Smartwatch Series 5", 15000, 25000, 20000);
-        Product productP7 = productcatalog.newProduct("Tablet Pro 12", 45000, 75000, 60000);
-        Product productP8 = productcatalog.newProduct("Home Speaker System", 18000, 32000, 27000);
-        Product productP9 = productcatalog.newProduct("Gaming Monitor 27\"", 28000, 50000, 40000);
-        Product productP10 = productcatalog.newProduct("Wireless Keyboard", 4000, 7000, 6000);
+    // Create Persons for customers
+    PersonDirectory personDirectory = business.getPersonDirectory();
+    CustomerDirectory customerDirectory = business.getCustomerDirectory();
 
+    // Generate 10 customer profiles
+    for (int i = 1; i <= 10; i++) {
+        Person person = personDirectory.newPerson("Customer " + i);
+        customerDirectory.newCustomerProfile(person);
+    }
 
-        //       SupplierDirectory suplierdirectory = business.getSupplierDirectory();
-        Supplier supplier2 = suplierdirectory.newSupplier("HP");
-        productcatalog = supplier2.getProductCatalog();
-        Product productHP1 = productcatalog.newProduct("Ultrafast Scanner X1", 15000, 30000, 22000);
-        Product productHP2 = productcatalog.newProduct("Professional Scanner Z5", 95000, 180000, 140000);
-        Product productHP3 = productcatalog.newProduct("High-Resolution Printer 450", 420000, 550000, 490000);
-        Product productHP4 = productcatalog.newProduct("Digital Photocopier Elite", 440000, 880000, 600000);
-        Product productHP5 = productcatalog.newProduct("Compact Scanner Lite 200", 190000, 480000, 350000);
-        Product productHP6 = productcatalog.newProduct("High-Speed Scanner MaxPro", 920000, 1500000, 1750000);
-        Product productHP7 = productcatalog.newProduct("Premium Printer X500", 310000, 460000, 700000);
-        Product productHP8 = productcatalog.newProduct("Advanced Photocopier A900", 360000, 600000, 750000);
+    // Create sales and marketing persons
+    Person salesPerson = personDirectory.newPerson("Xerox sales");
+    Person marketingPerson = personDirectory.newPerson("Xerox marketing");
 
+    SalesPersonDirectory salesPersonDirectory = business.getSalesPersonDirectory();
+    MarketingPersonDirectory marketingPersonDirectory = business.getMarketingPersonDirectory();
 
-// Create Person Directory
-        PersonDirectory persondirectory = business.getPersonDirectory();
-// Creating people representing sales organization        
-        Person dellSalesPerson001 = persondirectory.newPerson("Dell Sales");
-        Person dellMarketingPerson001 = persondirectory.newPerson("Dell Marketing");
-        Person dellAdminPerson001 = persondirectory.newPerson("Dell Admin");
+    SalesPersonProfile salesPersonProfile = salesPersonDirectory.newSalesPersonProfile(salesPerson);
+    MarketingPersonProfile marketingPersonProfile = marketingPersonDirectory.newMarketingPersonProfile(marketingPerson);
 
+    // Create Supplier Directory
+    SupplierDirectory supplierDirectory = business.getSupplierDirectory();
 
+    // Generate 5 suppliers, each with 10 products
+    for (int i = 1; i <= 5; i++) {
+        Supplier supplier = supplierDirectory.newSupplier("Supplier " + i);
+        ProductCatalog productCatalog = supplier.getProductCatalog();
 
-// Create person objects to represent customer organizations. we use this as customer
-        Person person010 = persondirectory.newPerson("Amazon");
-        Person person011 = persondirectory.newPerson("Meta");
-        Person person012 = persondirectory.newPerson("Apple");
-        Person person013 = persondirectory.newPerson("Tesla");
-        Person person014 = persondirectory.newPerson("Goldman Sachs"); 
+        for (int j = 1; j <= 10; j++) {
+            int floorprice = 1000 * j;
+            int cielingPrice = floorprice + random.nextInt(1000) + 5000;
+            int targetPrice = cielingPrice + random.nextInt(500) + 1000; // some variation
+            productCatalog.newProduct("Product " + j, floorprice, cielingPrice, targetPrice);
+        }
+    }
 
-// Create Customers
-        CustomerDirectory customerDirectory = business.getCustomerDirectory();
-        CustomerProfile amazonCustomerProfile = customerDirectory.newCustomerProfile(person010);
-        CustomerProfile metaCustomerProfile = customerDirectory.newCustomerProfile(person011);
-        CustomerProfile appleCustomerProfile = customerDirectory.newCustomerProfile(person012);
-        CustomerProfile teslaCustomerProfile = customerDirectory.newCustomerProfile(person013);
-        CustomerProfile goldmanSachsCustomerProfile = customerDirectory.newCustomerProfile(person014);
+//    // Create User Accounts
+//    UserAccountDirectory userAccountDirectory = business.getUserAccountDirectory();
+//    userAccountDirectory.newUserAccount(salesPersonProfile, "Sales", "password");
+//    userAccountDirectory.newUserAccount(marketingPersonProfile, "Marketing", "password");
 
+    // Process Orders for each product
+    MasterOrderList masterOrderList = business.getMasterOrderList();
 
-// Create Sales people
-        SalesPersonDirectory salespersondirectory = business.getSalesPersonDirectory();
-        SalesPersonProfile salespersonprofile = salespersondirectory.newSalesPersonProfile(dellSalesPerson001);
+    for (Supplier supplier : supplierDirectory.getSuplierList()) {
+        for (Product product : supplier.getProductCatalog().getProductList()) {
+            for (int k = 0; k < 10; k++) {
+                CustomerProfile customer = customerDirectory.getCustomerList().get(random.nextInt(10));
+                Order order = masterOrderList.newOrder(customer, salesPersonProfile);
+                int quantity = random.nextInt(10) + 1;
+                int actualPrice = product.getTargetPrice() + random.nextInt(2000) - 1000;
+                order.newOrderItem(product, actualPrice, quantity);
+            }
+        }
+    }
 
-// Create Marketing people
-        MarketingPersonDirectory marketingpersondirectory = business.getMarketingPersonDirectory();
-        MarketingPersonProfile marketingpersonprofile0 = marketingpersondirectory.newMarketingPersonProfile(dellMarketingPerson001);
-
-// Create Admins to manage the business
- //       EmployeeDirectory employeedirectory = business.getEmployeeDirectory();
- //       EmployeeProfile employeeprofile0 = employeedirectory.newEmployeeProfile(xeroxadminperson001);
-
-// Create User accounts that link to specific profiles
-        UserAccountDirectory uadirectory = business.getUserAccountDirectory();
-        UserAccount ua1 = uadirectory.newUserAccount(salespersonprofile, "Sales", "XXXX"); /// order products for one of the customers and performed by a sales person
-        UserAccount ua2 = uadirectory.newUserAccount(marketingpersonprofile0, "Marketing", "XXXX"); /// order products for one of the customers and performed by a sales person
- //       UserAccount ua3 = uadirectory.newUserAccount(employeeprofile0, "Admin", "XXXX"); /// order products for one of the customers and performed by a sales person
-
-// Process Orders on behalf of sales person and customer
-        MasterOrderList masterorderlist = business.getMasterOrderList();
-        Order order1 = masterorderlist.newOrder(amazonCustomerProfile, salespersonprofile);
-        OrderItem itemA1 = order1.newOrderItem(productP1, 22000, 3);
-        OrderItem itemA2 = order1.newOrderItem(productP2, 25000, 6);
-        OrderItem itemA3 = order1.newOrderItem(productP3, 40000, 5);
-        OrderItem itemA4 = order1.newOrderItem(productP4, 53000, 4);
-        OrderItem itemA5 = order1.newOrderItem(productP5, 30000, 2);
-        OrderItem itemA6 = order1.newOrderItem(productP6, 115000, 3);
-        OrderItem itemA7 = order1.newOrderItem(productP7, 45000, 1);
-        OrderItem itemA8 = order1.newOrderItem(productP8, 52000, 7);
-
-
-        Order order12 = masterorderlist.newOrder(metaCustomerProfile, salespersonprofile);
-        OrderItem itemB1 = order1.newOrderItem(productHP1, 17000, 2);
-        OrderItem itemB2 = order1.newOrderItem(productHP2, 9500, 5);
-        OrderItem itemB3 = order1.newOrderItem(productHP3, 29500, 8);
-        OrderItem itemB4 = order1.newOrderItem(productHP4, 30000, 3);
-        OrderItem itemB5 = order1.newOrderItem(productHP5, 2000, 4);
-        OrderItem itemB6 = order1.newOrderItem(productHP6, 95000, 1);
-        OrderItem itemB7 = order1.newOrderItem(productHP7, 26500, 6);
-        OrderItem itemB8 = order1.newOrderItem(productHP8, 40000, 1);
+    // Print stats
     
     
+    // Output the 10 generated customers
+    System.out.println("Generated Customers:");
+    for (CustomerProfile customerProfile : customerDirectory.getCustomerList()) {
+        System.out.println("    Customer: " + customerProfile.getPerson().getPersonId());  // Assuming getPersonName() exists
+    }
+      System.out.println("\n");
 
+    // Output statistics for each supplier and their products
 
+    for (int supplierIndex = 0; supplierIndex < supplierDirectory.getSuplierList().size(); supplierIndex++) {
+        Supplier supplier = supplierDirectory.getSuplierList().get(supplierIndex);
+
+        // Print supplier name
+        System.out.println("Supplier: " + supplier.getName());
+
+        // Iterate through each product of the supplier
+        for (int productIndex = 0; productIndex < supplier.getProductCatalog().getProductList().size(); productIndex++) {
+            Product product = supplier.getProductCatalog().getProductList().get(productIndex);
+
+            // Set unique product name by adding supplier index
+            String uniqueProductName = "Product_S" + (supplierIndex + 1) + "_P" + (productIndex + 1);
+            product.setName(uniqueProductName);
+
+            ProductSummary productSummary = new ProductSummary(product);
+            System.out.println("    Product: " + product.getProductName());
+            System.out.println("        Sales Volume: " + productSummary.getSalesRevenues());
+            System.out.println("        Profit Margin: " + productSummary.getProductPricePerformance());
+            System.out.println("        Frequency above target: " + productSummary.getNumberAboveTarget());
+            System.out.println("        Frequency below target: " + productSummary.getNumberBelowTarget());
+
+            // Generate 10 orders per product and display them
+            System.out.println("        Orders for " + product.getProductName() + ":");
+
+            for (int i = 0; i < 10; i++) {
+                // Get the same customer for this cycle of 10 orders
+                CustomerProfile customer = customerDirectory.getCustomerList().get(i % customerDirectory.getCustomerList().size());
+                Order order = masterOrderList.newOrder(customer, salesPersonProfile);
+                int quantity = random.nextInt(10) + 1;
+                int actualPrice = product.getTargetPrice() + random.nextInt(1000) - 500;
+                order.newOrderItem(product, actualPrice, quantity);
+
+                System.out.println("            Order " + (i+1) + ": Customer: " + customer.getPerson().getPersonId() + ", Quantity: " + quantity + ", Price: " + actualPrice);
+            }
+        }
+
+        System.out.println("\n");
+    }
 
     return business;
   }

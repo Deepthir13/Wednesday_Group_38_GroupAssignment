@@ -21,7 +21,7 @@ import model.Supplier.Supplier;
 
 /**
  *
- * @author anany
+ * @author akshayrajchevala
  */
 public class ProductPerformanceJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
@@ -39,7 +39,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         this.supplierPanel = supplierPanel;
         populateTable();
     }
-     private void populateTable() {
+    private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblProductPerformance.getModel();
         model.setRowCount(0); // Clear existing rows
 
@@ -67,6 +67,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,14 +149,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(btnBack)
-                .addGap(244, 244, 244)
-                .addComponent(lblTittle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdjustPricesLower)
                         .addGap(18, 18, 18)
@@ -166,26 +160,34 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
                         .addComponent(btnMaximizeProfitMargins)
                         .addGap(18, 18, 18)
                         .addComponent(btnGenerateReport))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(37, 37, 37)
+                            .addComponent(btnBack)
+                            .addGap(245, 245, 245)
+                            .addComponent(lblTittle))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTittle, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addGap(36, 36, 36)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addComponent(lblTittle, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdjustPricesLower)
                     .addComponent(btnAdjustPricesHigher)
                     .addComponent(btnRunSimulation)
                     .addComponent(btnMaximizeProfitMargins)
                     .addComponent(btnGenerateReport))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,6 +198,13 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private ProductSummary getProductSummaryFromTable(int row) {
+        // Get the list of product summaries, which matches the order of table rows
+        ArrayList<Product> productList = supplier.getProductCatalog().getProductList();
+        Product product = productList.get(row); // Assumes table row order matches product list order
+        return new ProductSummary(product);
+    }
+    
     private void btnAdjustPricesLowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjustPricesLowerActionPerformed
         // TODO add your handling code here:
         boolean adjusted = false; // Track if any product had its price adjusted
@@ -284,8 +293,8 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
         // Display simulation results
         JOptionPane.showMessageDialog(this, "Total Revenue Impact: " + totalRevenueImpact
-            + "\nHighest Impact Product: " + (highestImpactProduct != null ? highestImpactProduct.getProductName() : "None")
-            + " with impact of " + highestImpact);
+                + "\nHighest Impact Product: " + (highestImpactProduct != null ? highestImpactProduct.getProductName() : "None")
+                + " with impact of " + highestImpact);
         populateTable();
     }//GEN-LAST:event_btnRunSimulationActionPerformed
 
@@ -295,7 +304,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Profit margins are already maximized. No further adjustments are necessary.");
             return;
         }
-
+         
         boolean profitIncreased;
         int iterationCount = 0;
         int maxIterations = 10; // Cap the maximum number of iterations to avoid infinite loops
@@ -373,7 +382,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         if (topProduct != null) {
             report.append("<h3 style='color: #1E8449; margin-top: 20px;'>Top Product Above Target</h3>");
             report.append("<p>Product: <b>").append(topProduct.getSubjectProduct().getProductName())
-            .append("</b>, Sales Above Target: <b>").append(topProduct.getNumberAboveTarget()).append("</b></p>");
+                  .append("</b>, Sales Above Target: <b>").append(topProduct.getNumberAboveTarget()).append("</b></p>");
         } else {
             report.append("<h3 style='color: #1E8449; margin-top: 20px;'>Top Product Above Target</h3>");
             report.append("<p><i>None</i></p>");
@@ -385,7 +394,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
             report.append("<h3 style='color: #1E8449; margin-top: 20px;'>Products Always Above Target</h3><ul>");
             for (ProductSummary ps : productsAlwaysAboveTarget) {
                 report.append("<li>Product: <b>").append(ps.getSubjectProduct().getProductName())
-                .append("</b>, Sales Revenue: <b>").append(ps.getSalesRevenues()).append("</b></li>");
+                      .append("</b>, Sales Revenue: <b>").append(ps.getSalesRevenues()).append("</b></li>");
             }
             report.append("</ul>");
         } else {
@@ -406,7 +415,8 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
 
         JOptionPane.showMessageDialog(null, scrollPane, "Final Product Performance Report", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnGenerateReportActionPerformed
-     private int calculateTotalProfit() {
+
+    private int calculateTotalProfit() {
         int totalProfit = 0;
         for (Product product : supplier.getProductCatalog().getProductList()) {
             ProductSummary summary = new ProductSummary(product);
@@ -444,6 +454,7 @@ public class ProductPerformanceJPanel extends javax.swing.JPanel {
         }
         return revenue;
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdjustPricesHigher;
