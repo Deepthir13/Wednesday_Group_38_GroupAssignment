@@ -12,22 +12,21 @@ import model.Supplier.SupplierDirectory;
 
 /**
  *
- * @author anany
+ * @author priyankasatish
  */
 public class LoginSupplierJPanel extends javax.swing.JPanel {
-
+    
     private JPanel userProcessContainer;
     private SupplierDirectory supplierDirectory;
+
     /**
      * Creates new form LoginSupplierJPanel
      */
     public LoginSupplierJPanel(JPanel upc, SupplierDirectory sd) {
         initComponents();
-//        userProcessContainer = upc;
-//        supplierDirectory = sd;
-         this.userProcessContainer = upc;
+        this.userProcessContainer = upc;
         this.supplierDirectory = sd;
-        populateSupplierComboBox();  
+        populateSupplierComboBox(); 
     }
 
     /**
@@ -39,18 +38,26 @@ public class LoginSupplierJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
         lblSupplierChooser = new javax.swing.JLabel();
-        cmbSupplier = new javax.swing.JComboBox();
         btnFind = new javax.swing.JButton();
+        cmbSupplier = new javax.swing.JComboBox();
+        jPanel1 = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        lblTitle.setText("Supplier");
-        lblTitle.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        lblTitle.setIconTextGap(50);
+        setBackground(new java.awt.Color(244, 237, 198));
 
-        lblSupplierChooser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSupplierChooser.setBackground(new java.awt.Color(204, 204, 255));
+        lblSupplierChooser.setFont(new java.awt.Font("Hiragino Sans GB", 1, 14)); // NOI18N
         lblSupplierChooser.setText("Choose a supplier :");
+
+        btnFind.setBackground(new java.awt.Color(255, 204, 204));
+        btnFind.setForeground(new java.awt.Color(0, 51, 51));
+        btnFind.setText("Login Here");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindActionPerformed(evt);
+            }
+        });
 
         cmbSupplier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbSupplier.addActionListener(new java.awt.event.ActionListener() {
@@ -59,73 +66,95 @@ public class LoginSupplierJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnFind.setText("Login >>");
-        btnFind.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFindActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 3, 24)); // NOI18N
+        lblTitle.setText("Supplier");
+        lblTitle.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lblTitle.setIconTextGap(50);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(lblTitle)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblTitle)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(lblSupplierChooser)
-                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
-                    .addComponent(btnFind)
-                    .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(220, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(lblSupplierChooser)
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnFind)
+                            .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(lblTitle)
-                .addGap(47, 47, 47)
+                .addGap(17, 17, 17)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSupplierChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSupplierActionPerformed
-
-    }//GEN-LAST:event_cmbSupplierActionPerformed
-
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-       // Retrieve the selected supplier from the combo box
+        // Retrieve the selected supplier from the combo box
         Supplier supplier = (Supplier) cmbSupplier.getSelectedItem();
-        
+
         // Create the SupplierWorkAreaJPanel and pass the supplier
         SupplierWorkAreaJPanel swajp = new SupplierWorkAreaJPanel(userProcessContainer, supplier);
         userProcessContainer.add("SupplierWorkAreaJPanel", swajp);
-        
+
         // Switch to the SupplierWorkAreaJPanel
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnFindActionPerformed
 
+    private void cmbSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSupplierActionPerformed
+
+    }//GEN-LAST:event_cmbSupplierActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFind;
     private javax.swing.JComboBox cmbSupplier;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblSupplierChooser;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
 
     private void populateSupplierComboBox() {
-       DefaultComboBoxModel<Supplier> model = new DefaultComboBoxModel<>();
+        DefaultComboBoxModel<Supplier> model = new DefaultComboBoxModel<>();
         for (Supplier supplier : supplierDirectory.getSuplierList()) {
             model.addElement(supplier);  // Add the Supplier object to the dropdown
         }
         cmbSupplier.setModel(model);
     }
-}
+    }

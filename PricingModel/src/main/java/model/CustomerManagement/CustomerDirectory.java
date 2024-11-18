@@ -25,10 +25,6 @@ public class CustomerDirectory {
         customerlist = new ArrayList();
 
     }
-    
-    public ArrayList<CustomerProfile> getCustomerList() {
-        return customerlist;
-    }
 
     public CustomerProfile newCustomerProfile(Person p) {
 

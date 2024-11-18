@@ -12,11 +12,14 @@ import model.Supplier.Supplier;
 
 /**
  *
- * @author bhavy
+ * @author deepthiramesh
  */
 public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
-     private JPanel userProcessContainer;
+    /**
+     * Creates new form SupplierWorkAreaJPanel
+     */
+    private JPanel userProcessContainer;
     private Supplier supplier;
     public SupplierWorkAreaJPanel(JPanel upc, Supplier s) {
         initComponents();
@@ -44,7 +47,6 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
       
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,26 +56,23 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        lblSupplier = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProductCatalog = new javax.swing.JTable();
-        task1 = new javax.swing.JButton();
+        btnBrowse = new javax.swing.JButton();
+        lblSupplier = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblTitle.setText("Product Price Performance");
+        setBackground(new java.awt.Color(244, 237, 198));
 
-        btnBack.setText("<< Back");
+        btnBack.setBackground(new java.awt.Color(255, 204, 204));
+        btnBack.setText("<<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
 
-        lblSupplier.setText("Supplier:");
-
-        tblProductCatalog.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tblProductCatalog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -82,17 +81,23 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Product Name", "Floor Price", "Target Price", "Ceiling Price", "Sales Revenue"
+                "Product Price", "Benchmark Price", "Ideal price", "Price Cap", "Total Sales"
             }
         ));
         jScrollPane1.setViewportView(tblProductCatalog);
 
-        task1.setText("Browse Product Price Performance");
-        task1.addActionListener(new java.awt.event.ActionListener() {
+        btnBrowse.setBackground(new java.awt.Color(255, 204, 204));
+        btnBrowse.setText("Browse");
+        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                task1ActionPerformed(evt);
+                btnBrowseActionPerformed(evt);
             }
         });
+
+        lblSupplier.setText("Click on the Browse Button for further details on the products: ");
+
+        jTextField1.setBackground(new java.awt.Color(255, 204, 204));
+        jTextField1.setText("PRODUCT PRICE PERFORMANCE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,63 +106,59 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(375, 375, 375)
-                        .addComponent(lblTitle))
+                        .addGap(35, 35, 35)
+                        .addComponent(btnBack)
+                        .addGap(229, 229, 229)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(354, 354, 354)
-                        .addComponent(task1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSupplier)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(180, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSupplier)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addComponent(btnBrowse)))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnBack)))
                 .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(lblSupplier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(task1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBrowse)
+                .addContainerGap(347, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-
-        userProcessContainer.remove(this);
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void task1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_task1ActionPerformed
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
         // TODO add your handling code here:
-        ProductPerformanceJPanel pj = new ProductPerformanceJPanel(userProcessContainer, supplier, this);
+         ProductPerformanceJPanel pj = new ProductPerformanceJPanel(userProcessContainer, supplier, this);
         userProcessContainer.add("ProductPerformanceJPanel", pj);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_task1ActionPerformed
+    }//GEN-LAST:event_btnBrowseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnBrowse;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblSupplier;
-    private javax.swing.JLabel lblTitle;
-    private javax.swing.JButton task1;
     private javax.swing.JTable tblProductCatalog;
     // End of variables declaration//GEN-END:variables
 }

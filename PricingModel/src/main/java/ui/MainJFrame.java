@@ -12,13 +12,12 @@ import ui.pricing.LoginSupplierJPanel;
 
 /**
  *
- * @author bhavy
+ * @author anany
  */
 public class MainJFrame extends javax.swing.JFrame {
 
-   
     /**
-     * Creates new form MainJFrame
+     * Creates new form MianJFrame
      */
     SupplierDirectory supplierDirectory;
     public MainJFrame() {
@@ -39,7 +38,7 @@ public class MainJFrame extends javax.swing.JFrame {
         SplitPane = new javax.swing.JSplitPane();
         ControlArea = new javax.swing.JPanel();
         btnSupplier = new javax.swing.JButton();
-        userProcessContainer = new javax.swing.JPanel();
+        userProcessConatiner = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +54,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ControlAreaLayout.setHorizontalGroup(
             ControlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ControlAreaLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(btnSupplier)
                 .addContainerGap())
         );
@@ -64,23 +63,27 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(ControlAreaLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(btnSupplier)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(ControlArea);
 
-        userProcessContainer.setLayout(new java.awt.CardLayout());
-        SplitPane.setRightComponent(userProcessContainer);
+        userProcessConatiner.setLayout(new java.awt.CardLayout());
+        SplitPane.setRightComponent(userProcessConatiner);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SplitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,10 +91,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
         // TODO add your handling code here:
-        LoginSupplierJPanel ls = new LoginSupplierJPanel(userProcessContainer, supplierDirectory);
-        userProcessContainer.add("LoginSupplierJPanel", ls);
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        LoginSupplierJPanel ls = new LoginSupplierJPanel(userProcessConatiner, supplierDirectory);
+        userProcessConatiner.add("LoginSupplierJPanel", ls);
+        CardLayout layout = (CardLayout)userProcessConatiner.getLayout();
+        layout.next(userProcessConatiner);
     }//GEN-LAST:event_btnSupplierActionPerformed
 
     /**
@@ -120,6 +123,9 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -133,6 +139,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ControlArea;
     private javax.swing.JSplitPane SplitPane;
     private javax.swing.JButton btnSupplier;
-    private javax.swing.JPanel userProcessContainer;
+    private javax.swing.JPanel userProcessConatiner;
     // End of variables declaration//GEN-END:variables
 }

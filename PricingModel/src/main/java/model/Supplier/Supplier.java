@@ -18,7 +18,7 @@ import model.ProductManagement.ProductsReport;
 public class Supplier {
     String name;
     ProductCatalog productcatalog;
-   ProductsReport productsreport;
+    ProductsReport productsreport;
     public Supplier(String n){
         name = n;
         productcatalog = new ProductCatalog("software");

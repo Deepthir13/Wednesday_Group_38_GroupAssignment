@@ -1,4 +1,4 @@
-        /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -38,10 +38,6 @@ public class Product {
         ceilingPrice = cp;
         targetPrice = tp;
         return this; //returns itself
-    }
-        // New method to set target price
-    public void setTargetPrice(int tp) {
-        this.targetPrice = tp;
     }
     public int getTargetPrice() {return targetPrice;}
     public void addOrderItem(OrderItem oi){     
@@ -89,11 +85,19 @@ public class Product {
         }
         return sum;
     }
+    public void setTargetPrice(int tp) {
+        this.targetPrice = tp;
+    }
+        
     public String getProductName() {
         return name;
     }
     public void setName(String n){
         name = n;
+    }
+    
+    public ArrayList<OrderItem> getOrderItems() {
+        return orderitems;
     }
     @Override
     public String toString(){
@@ -104,10 +108,6 @@ public class Product {
     }
     public int getCeilingPrice(){
         return ceilingPrice;
-    }
-    
-    public ArrayList<OrderItem> getOrderItems() {
-        return orderitems;
     }
 
 }
