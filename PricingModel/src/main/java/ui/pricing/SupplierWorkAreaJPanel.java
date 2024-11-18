@@ -147,7 +147,7 @@ public class SupplierWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
         // TODO add your handling code here:
-        ProductPerformanceJPanel pj = new ProductPerformanceJPanel(userProcessContainer, supplier, this);
+         ProductPerformanceJPanel pj = new ProductPerformanceJPanel(userProcessContainer, supplier, this);
         userProcessContainer.add("ProductPerformanceJPanel", pj);
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
